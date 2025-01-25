@@ -367,7 +367,7 @@ autostart = true
 script = ExtResource("6_liwvp")
 
 [node name="TreeObstacle" parent="." instance=ExtResource("8_5xvai")]
-position = Vector2(2001, 1080)
+position = Vector2(-257, 1087)
 script = ExtResource("9_gmxkl")
 
 [connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_obstacle_spawn_timer_timeout"]
