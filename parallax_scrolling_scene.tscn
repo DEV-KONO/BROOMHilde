@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6g2slyf6rno8"]
+
+[ext_resource type="Script" path="res://parallax_background.gd" id="1_2u8ip"]
+[ext_resource type="Texture2D" uid="uid://cgx6v1ygj4b5r" path="res://parallax_background/Atardecer .png" id="1_dtnc2"]
+[ext_resource type="PackedScene" uid="uid://c2kgfq4pbg5vt" path="res://player.tscn" id="2_5uqeh"]
+[ext_resource type="Texture2D" uid="uid://cw448k8hss0na" path="res://parallax_background/Montañas boceto .png" id="2_subo4"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="4_rtbv2"]
+
+[node name="ParallaxScrollingScene" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_2u8ip")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_dtnc2")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(3, 3)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("2_subo4")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_5uqeh")]
+position = Vector2(-304, -6)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-307, -7)
+script = ExtResource("4_rtbv2")
+player = NodePath("../CharacterBody2D")
