@@ -3,8 +3,13 @@ class_name Player extends CharacterBody2D
 var cardinal_dir_x : Vector2 = Vector2.RIGHT
 var cardinal_dir_y : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
-var health : int = 3
+@export var max_health : int = 3
+@export var immunity : bool = false
 
+@onready var health : int = max_health
+
+@onready var timer: Timer = $Timer
+@onready var anim_player_shield: AnimationPlayer = $Sprite2D/Sprite2D/AnimPlayer_Shield
 @onready var inmunity_timer: Timer = $InmunityTimer
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var state_machine: Node = $StateMachine
@@ -14,6 +19,7 @@ var health : int = 3
 func _ready() -> void:
 	state_machine.Initialize(self)
 	$HitBox.Damaged.connect(takeDamage)
+	timer.timeout.connect(_on_timer_timeout)
 	pass
 
 func _process(delta: float) -> void:
@@ -81,9 +87,24 @@ func anim_Dir_i() -> String:
 		return "_Mid"
 
 func takeDamage(_damage : int) -> void:
-	if inmunity_timer.is_stopped():
+	if inmunity_timer.is_stopped() && immunity != true:
 		inmunity_timer.start()
 		health -= _damage
-		#animation_player.play("flash") hay que intentar animation queue
-		print("Took damage", health)
+		timer.start()
+		#anim_player_shield.play("shield")
+		print("Health", health)
+		immunity = true
+	if health <= 0:
+		die()
+		print("dead")
+	if inmunity_timer.time_left <= 0:
+		immunity = false
+	pass
+func die() -> void:
+		pass
+
+
+func _on_timer_timeout():
+	anim_player_shield.play("RESET")
+	timer.start()
 	pass
