@@ -10,3 +10,6 @@ func _process(delta: float) -> void:
 	if player:
 		var player_node = get_node(player)
 		global_position.x = player_node.global_position.x
+
+func get_cam_pos() -> Vector2:
+	return position
