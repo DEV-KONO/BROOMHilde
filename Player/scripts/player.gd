@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 var cardinal_dir_x : Vector2 = Vector2.RIGHT
 var cardinal_dir_y : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
+var health : int = 3
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var state_machine: Node = $StateMachine
@@ -11,6 +12,7 @@ var direction : Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	state_machine.Initialize(self)
+	$HitBox.Damaged.connect(takeDamage)
 	pass
 
 func _process(delta: float) -> void:
@@ -45,11 +47,10 @@ func set_Direction() -> bool:
 func update_Animation_fly(state : String) -> void:
 	animation_player.play(state + anim_Dir())
 	pass
+
 func update_Animation_idle(state : String) -> void:
 	animation_player.play(state + anim_Dir_i())
 	pass
-
-
 
 func anim_Dir() -> String:
 	if cardinal_dir_x == Vector2.RIGHT && cardinal_dir_y == Vector2.UP:
@@ -72,3 +73,8 @@ func anim_Dir_i() -> String:
 		return "_Up"
 	else:
 		return "_Mid"
+
+func takeDamage(_damage : int) -> void:
+	health -= _damage
+	print("Took damage", health)
+	pass
