@@ -94,6 +94,13 @@ func takeDamage(_damage : int) -> void:
 	if inmunity_timer.is_stopped():
 		inmunity_timer.start()
 		health -= _damage
-		#animation_player.play("flash") hay que intentar animation queue
-		print("Took damage", health)
+		#animation_player.play("flash")
+		print("Health", health)
+	if health <= 0:
+		dead()
+		print("Dead")
 	pass
+
+func dead():
+	pass
+	
