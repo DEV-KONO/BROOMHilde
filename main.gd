@@ -15,5 +15,5 @@ func _process(delta: float) -> void:
 
 func _on_obstacle_spawn_timer_timeout() -> void:
 	var tree = obstacle.instantiate()
-	tree.position = camara.get_cam_pos() + Vector2(965, 510)
+	tree.position = camara.get_cam_pos() + Vector2(1200, 540)
 	add_child(tree)
