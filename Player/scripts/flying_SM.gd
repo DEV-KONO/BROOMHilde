@@ -13,7 +13,11 @@ func Exit():
 func Process(_delta : float) -> State:
 	if (player.direction.x == 0 && player.direction.y != 0) || player.direction == Vector2.ZERO:
 		return idle
-	player.velocity = player.direction * move_speed
+	if player.direction.x < 0:
+		player.velocity = (player.direction * move_speed) + (Vector2.RIGHT * 1250)
+		#player.velocity = player.direction * (-move_speed)/3
+	else:
+		player.velocity = player.direction * move_speed
 	if player.set_Direction():
 		player.update_Animation_fly("fly")
 	return null

@@ -6,7 +6,8 @@
 [ext_resource type="Script" path="res://Player/scripts/flying_SM.gd" id="4_hqgwc"]
 [ext_resource type="Script" path="res://Player/scripts/idle_SM.gd" id="5_jp34i"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qdsuy"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2n36"]
+size = Vector2(130, 53)
 
 [sub_resource type="Animation" id="Animation_8b5so"]
 length = 0.001
@@ -199,7 +200,8 @@ hframes = 8
 frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_qdsuy")
+position = Vector2(-9, -3.5)
+shape = SubResource("RectangleShape2D_f2n36")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_e70sp")
