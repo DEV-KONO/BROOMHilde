@@ -1,13 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://dnvq75oa4ieaj"]
+[gd_scene load_steps=19 format=3 uid="uid://dnvq75oa4ieaj"]
 
 [ext_resource type="Script" path="res://Player/scripts/player.gd" id="1_de7ph"]
 [ext_resource type="Texture2D" uid="uid://umey43l13tvk" path="res://Player/sprites/flechas.png" id="2_6s26k"]
 [ext_resource type="Script" path="res://Player/scripts/player_SM.gd" id="3_e70sp"]
 [ext_resource type="Script" path="res://Player/scripts/flying_SM.gd" id="4_hqgwc"]
 [ext_resource type="Script" path="res://Player/scripts/idle_SM.gd" id="5_jp34i"]
+[ext_resource type="PackedScene" uid="uid://xnx4nliwxaoi" path="res://GeneralNodes/HitBox/HitBox.tscn" id="6_sowum"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2n36"]
-size = Vector2(130, 53)
+size = Vector2(47, 22)
 
 [sub_resource type="Animation" id="Animation_8b5so"]
 length = 0.001
@@ -200,7 +201,7 @@ hframes = 8
 frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-9, -3.5)
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_f2n36")
 
 [node name="StateMachine" type="Node" parent="."]
@@ -216,3 +217,10 @@ script = ExtResource("5_jp34i")
 libraries = {
 "": SubResource("AnimationLibrary_61pmh")
 }
+
+[node name="HitBox" parent="." instance=ExtResource("6_sowum")]
+collision_layer = 257
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_f2n36")
