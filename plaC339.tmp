@@ -1,0 +1,218 @@
+[gd_scene load_steps=18 format=3 uid="uid://dnvq75oa4ieaj"]
+
+[ext_resource type="Script" path="res://Player/scripts/player.gd" id="1_de7ph"]
+[ext_resource type="Texture2D" uid="uid://umey43l13tvk" path="res://Player/sprites/flechas.png" id="2_6s26k"]
+[ext_resource type="Script" path="res://Player/scripts/player_SM.gd" id="3_e70sp"]
+[ext_resource type="Script" path="res://Player/scripts/flying_SM.gd" id="4_hqgwc"]
+[ext_resource type="Script" path="res://Player/scripts/idle_SM.gd" id="5_jp34i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2n36"]
+size = Vector2(130, 53)
+
+[sub_resource type="Animation" id="Animation_8b5so"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_cy118"]
+resource_name = "fly_Left_Down"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_atvu8"]
+resource_name = "fly_Left_Mid"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_r5qmk"]
+resource_name = "fly_Left_Up"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_of8sw"]
+resource_name = "fly_Right_Down"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_vrdyo"]
+resource_name = "fly_Right_Mid"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_bxxc3"]
+resource_name = "fly_Right_Up"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_mjhgc"]
+resource_name = "idle_Down"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_uu60g"]
+resource_name = "idle_Mid"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_3d80s"]
+resource_name = "idle_Up"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_61pmh"]
+_data = {
+"RESET": SubResource("Animation_8b5so"),
+"fly_Left_Down": SubResource("Animation_cy118"),
+"fly_Left_Mid": SubResource("Animation_atvu8"),
+"fly_Left_Up": SubResource("Animation_r5qmk"),
+"fly_Right_Down": SubResource("Animation_of8sw"),
+"fly_Right_Mid": SubResource("Animation_vrdyo"),
+"fly_Right_Up": SubResource("Animation_bxxc3"),
+"idle_Down": SubResource("Animation_mjhgc"),
+"idle_Mid": SubResource("Animation_uu60g"),
+"idle_Up": SubResource("Animation_3d80s")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_de7ph")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6s26k")
+hframes = 8
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9, -3.5)
+shape = SubResource("RectangleShape2D_f2n36")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_e70sp")
+
+[node name="flying" type="Node" parent="StateMachine"]
+script = ExtResource("4_hqgwc")
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("5_jp34i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_61pmh")
+}

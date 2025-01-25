@@ -15,6 +15,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	direction = Vector2(Input.get_axis("move_Left","move_Right"), Input.get_axis("move_Up","move_Down")).normalized()
+	
+	print(position.y)
+	
+	if position.y < 72:
+		position.y = 72
+	elif position.y > 1020:
+		position.y = 1020
 	pass
 
 func _physics_process(delta):

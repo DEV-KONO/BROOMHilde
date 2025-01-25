@@ -18,7 +18,6 @@ func Process(_delta : float) -> State:
 	#player.velocity = Vector2.RIGHT * 500
 	if player.set_Direction():
 		player.update_Animation_idle("idle")
-	print(move_speed)
 	return null
 
 func Physics(_delta : float) -> State:
