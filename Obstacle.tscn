@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cukded2auobvp"]
+
+[ext_resource type="Script" path="res://obstacle.gd" id="1_cxf6d"]
+[ext_resource type="Texture2D" uid="uid://d1bmkqo1xhprg" path="res://Copia de Base personajes 64x64.png" id="1_plsrm"]
+[ext_resource type="Script" path="res://sprite_2d.gd" id="2_ajy3x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ty24v"]
+radius = 45.0
+height = 90.0
+
+[node name="Obstacle" type="Node2D"]
+position = Vector2(-3, -1)
+script = ExtResource("1_cxf6d")
+obstacle_scene = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(667.576, 348.486)
+scale = Vector2(-22.059, 16.3589)
+texture = ExtResource("1_plsrm")
+script = ExtResource("2_ajy3x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(217, 68)
+shape = SubResource("CapsuleShape2D_ty24v")
