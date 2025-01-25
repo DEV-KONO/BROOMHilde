@@ -1,6 +1,6 @@
 class_name Flying extends State
 
-@export var move_speed : float = 100.0
+@export var move_speed : float = 1000.0
 
 func Enter():
 	player.update_Animation("fly")
