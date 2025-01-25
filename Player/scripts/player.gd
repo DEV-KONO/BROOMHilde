@@ -11,7 +11,7 @@ var bullet_path = preload("res://bullet.tscn")
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var state_machine: Node = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+var is_flashing: bool = false
 
 func _ready() -> void:
 	state_machine.Initialize(self)
@@ -67,9 +67,10 @@ func update_Animation_fly(state : String) -> void:
 func update_Animation_idle(state : String) -> void:
 	animation_player.play(state + anim_Dir_i())
 	pass
-
 func anim_Dir() -> String:
-	if cardinal_dir_x == Vector2.RIGHT && cardinal_dir_y == Vector2.UP:
+	if is_flashing:
+		return ""  
+	elif cardinal_dir_x == Vector2.RIGHT && cardinal_dir_y == Vector2.UP:
 		return "_Right_Up"
 	elif cardinal_dir_x == Vector2.RIGHT && cardinal_dir_y == Vector2.DOWN:
 		return "_Right_Down"
@@ -82,7 +83,10 @@ func anim_Dir() -> String:
 	else:
 		return "_Right_Mid"
 
+
 func anim_Dir_i() -> String:
+	if is_flashing:
+		return ""  
 	if cardinal_dir_y == Vector2.DOWN && cardinal_dir_x == Vector2.ZERO:
 		return "_Down"
 	elif cardinal_dir_y == Vector2.UP && cardinal_dir_x == Vector2.ZERO:
@@ -90,10 +94,30 @@ func anim_Dir_i() -> String:
 	else:
 		return "_Mid"
 
-func takeDamage(_damage : int) -> void:
+
+func takeDamage(_damage: int) -> void:
 	if inmunity_timer.is_stopped():
 		inmunity_timer.start()
 		health -= _damage
-		#animation_player.play("flash") hay que intentar animation queue
+
+		is_flashing = true
+		
+		sprite.visible = true  
+		sprite.modulate = Color(1, 1, 1, 1)  
+		animation_player.play("flash")
 		print("Took damage", health)
-	pass
+		
+		var timer = get_tree().create_timer(0.35)  
+		await timer.timeout
+		
+		is_flashing = false 
+		
+		var timer2 = get_tree().create_timer(0.1)  
+		await timer2.timeout
+		
+		animation_player.play("RESET")
+		sprite.visible = true
+		sprite.modulate = Color(1, 1, 1, 1) 
+
+
+pass
