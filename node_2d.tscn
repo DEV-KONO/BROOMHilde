@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://pcs1dyw7uaa0"]
+[gd_scene load_steps=10 format=3 uid="uid://pcs1dyw7uaa0"]
 
 [ext_resource type="PackedScene" uid="uid://dnvq75oa4ieaj" path="res://player.tscn" id="1_cd4eq"]
 [ext_resource type="Script" path="res://parallax_background.gd" id="1_kjtu0"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://timer.gd" id="6_liwvp"]
 [ext_resource type="PackedScene" uid="uid://88l8ja7uuxs5" path="res://obstacle_nodes/tree.tscn" id="8_5xvai"]
 [ext_resource type="Script" path="res://obstacle_nodes/tree.gd" id="9_gmxkl"]
-[ext_resource type="PackedScene" uid="uid://dgftefxfqsvd4" path="res://Props/Plants/plant.tscn" id="6_ac6l7"]
 
 [node name="ParallaxScrollingScene" type="Node2D"]
 script = ExtResource("1_xleju")
@@ -55,5 +54,3 @@ script = ExtResource("9_gmxkl")
 
 [connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_obstacle_spawn_timer_timeout"]
 [connection signal="timeout" from="ObstacleSpawnTimer" to="ObstacleSpawnTimer" method="_on_timeout"]
-[node name="Plant" parent="." instance=ExtResource("6_ac6l7")]
-position = Vector2(1119, 566)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dnvq75oa4ieaj"]
+[gd_scene load_steps=20 format=3 uid="uid://dnvq75oa4ieaj"]
 
 [ext_resource type="Script" path="res://Player/scripts/player.gd" id="1_de7ph"]
 [ext_resource type="Texture2D" uid="uid://umey43l13tvk" path="res://Player/sprites/flechas.png" id="2_6s26k"]
@@ -23,6 +23,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_cy118"]
@@ -178,9 +190,39 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_q0wa4"]
+resource_name = "flash"
+length = 0.25
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_61pmh"]
 _data = {
 "RESET": SubResource("Animation_8b5so"),
+"flash": SubResource("Animation_q0wa4"),
 "fly_Left_Down": SubResource("Animation_cy118"),
 "fly_Left_Mid": SubResource("Animation_atvu8"),
 "fly_Left_Up": SubResource("Animation_r5qmk"),
@@ -224,3 +266,6 @@ collision_layer = 257
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_f2n36")
+
+[node name="InmunityTimer" type="Timer" parent="."]
+one_shot = true

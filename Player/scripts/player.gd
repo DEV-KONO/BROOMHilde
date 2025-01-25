@@ -5,6 +5,7 @@ var cardinal_dir_y : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
 var health : int = 3
 
+@onready var inmunity_timer: Timer = $InmunityTimer
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var state_machine: Node = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -17,8 +18,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	direction = Vector2(Input.get_axis("move_Left","move_Right"), Input.get_axis("move_Up","move_Down")).normalized()
-	
-	print(position.y)
 	
 	if position.y < 72:
 		position.y = 72
@@ -82,6 +81,9 @@ func anim_Dir_i() -> String:
 		return "_Mid"
 
 func takeDamage(_damage : int) -> void:
-	health -= _damage
-	print("Took damage", health)
+	if inmunity_timer.is_stopped():
+		inmunity_timer.start()
+		health -= _damage
+		#animation_player.play("flash") hay que intentar animation queue
+		print("Took damage", health)
 	pass

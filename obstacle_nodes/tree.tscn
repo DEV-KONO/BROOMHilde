@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://88l8ja7uuxs5"]
+[gd_scene load_steps=4 format=3 uid="uid://88l8ja7uuxs5"]
 
 [ext_resource type="Texture2D" uid="uid://f8y442remkvo" path="res://obstacle_sprites/pino_placeholder.png" id="1_2xtas"]
+[ext_resource type="PackedScene" uid="uid://bsgusf4ohdr1p" path="res://GeneralNodes/HurtBox/HurtBox.tscn" id="2_djofj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7uig2"]
+size = Vector2(369.5, 482.5)
 
 [node name="Tree" type="Node2D"]
 
@@ -8,3 +12,11 @@
 position = Vector2(2, -215)
 scale = Vector2(0.5, 0.511331)
 texture = ExtResource("1_2xtas")
+
+[node name="HurtBox" parent="." instance=ExtResource("2_djofj")]
+collision_mask = 1
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(4.75, -235.75)
+shape = SubResource("RectangleShape2D_7uig2")
