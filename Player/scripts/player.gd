@@ -5,6 +5,8 @@ var cardinal_dir_y : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
 var health : int = 3
 
+var bullet_path = preload("res://bullet.tscn")
+
 @onready var inmunity_timer: Timer = $InmunityTimer
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var state_machine: Node = $StateMachine
@@ -25,8 +27,16 @@ func _process(delta: float) -> void:
 		position.y = 1020
 	pass
 
+func fire():
+	var bullet = bullet_path.instantiate()
+	bullet.pos.x = position.x + 200
+	bullet.pos.y = position.y
+	get_tree().get_root().get_node(".").add_child(bullet)
+
 func _physics_process(delta):
 	move_and_slide()
+	if Input.is_action_just_pressed("shoot"):
+		fire()
 
 func set_Direction() -> bool:
 	var new_dir_x : Vector2 = cardinal_dir_x
