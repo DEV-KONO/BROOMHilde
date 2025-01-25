@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://y6t1fnvxim22"]
+[gd_scene load_steps=5 format=3 uid="uid://dycqq84x0jwar"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_6ke45"]
-[ext_resource type="Texture2D" uid="uid://biimeoh5ao3my" path="res://Props/Sprites/Burbuja.png" id="2_c4kp1"]
+[ext_resource type="Texture2D" uid="uid://cyc8h72pqek5j" path="res://Props/Sprites/bubble_test.webp" id="2_fwvmr"]
+[ext_resource type="PackedScene" uid="uid://bsgusf4ohdr1p" path="res://GeneralNodes/HurtBox/HurtBox.tscn" id="3_m7eti"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_84bqq"]
 radius = 61.0082
@@ -15,4 +16,9 @@ texture = ExtResource("2_c4kp1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_84bqq")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_m7eti")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_84bqq")

@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://djiqucs1uaj6f" path="res://Backgrounds/Montañas nevadas .png" id="4_8hpv1"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="4_e6e3e"]
 [ext_resource type="Texture2D" uid="uid://c5v1oxgc5boii" path="res://Backgrounds/Montañas verdes.png" id="5_2500f"]
-[ext_resource type="Texture2D" uid="uid://dw5k4ane8dco6" path="res://Backgrounds/Pino mágico .png" id="6_7vnj5"]
 [ext_resource type="Texture2D" uid="uid://bu3rtb4etlrsj" path="res://Backgrounds/Montañitas v...png" id="6_ktka0"]
 [ext_resource type="Script" path="res://timer.gd" id="6_liwvp"]
 [ext_resource type="Texture2D" uid="uid://cajshrt1xcmiy" path="res://Backgrounds/Arbusto.png" id="7_u68ws"]
@@ -61,111 +60,11 @@ motion_mirroring = Vector2(2000, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
 texture_repeat = 3
-position = Vector2(992, 504)
+position = Vector2(1000, 559)
 texture = ExtResource("6_ktka0")
 
-[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(0, -24)
-motion_scale = Vector2(0.8, 0.8)
-motion_mirroring = Vector2(2000, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
-self_modulate = Color(0.75, 0.75, 0.75, 1)
-texture_repeat = 3
-position = Vector2(115, 844)
-scale = Vector2(2.57222, 3.32778)
-texture = ExtResource("6_7vnj5")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
-self_modulate = Color(0.75, 0.75, 0.75, 1)
-texture_repeat = 3
-position = Vector2(367.375, 850.375)
-scale = Vector2(2.63611, 3.475)
-texture = ExtResource("6_7vnj5")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
-self_modulate = Color(0.75, 0.75, 0.75, 1)
-texture_repeat = 3
-position = Vector2(1377, 895)
-scale = Vector2(2.47917, 3.075)
-texture = ExtResource("6_7vnj5")
-
-[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
-self_modulate = Color(0.75, 0.75, 0.75, 1)
-texture_repeat = 3
-position = Vector2(1099, 901)
-scale = Vector2(2.47917, 3.075)
-texture = ExtResource("6_7vnj5")
-
-[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
-self_modulate = Color(0.75, 0.75, 0.75, 1)
-texture_repeat = 3
-position = Vector2(1833, 904)
-scale = Vector2(2.47917, 3.075)
-texture = ExtResource("6_7vnj5")
-
-[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
-self_modulate = Color(0.75, 0.75, 0.75, 1)
-texture_repeat = 3
-position = Vector2(536, 895)
-scale = Vector2(2.47917, 3.075)
-texture = ExtResource("6_7vnj5")
-
-[node name="Sprite2D7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
-self_modulate = Color(0.75, 0.75, 0.75, 1)
-texture_repeat = 3
-position = Vector2(1211, 865)
-scale = Vector2(2.57222, 3.32778)
-texture = ExtResource("6_7vnj5")
-
-[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(0, -12)
-motion_scale = Vector2(0.85, 0.85)
-motion_mirroring = Vector2(2000, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
-texture_repeat = 3
-position = Vector2(1020.13, 834.875)
-scale = Vector2(2.59722, 3.39722)
-texture = ExtResource("6_7vnj5")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
-texture_repeat = 3
-position = Vector2(1681, 812)
-scale = Vector2(2.61945, 3.83055)
-texture = ExtResource("6_7vnj5")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
-texture_repeat = 3
-position = Vector2(725.625, 785.875)
-scale = Vector2(2.96389, 4.175)
-texture = ExtResource("6_7vnj5")
-
-[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
-texture_repeat = 3
-position = Vector2(835, 853)
-scale = Vector2(2.59722, 3.39722)
-texture = ExtResource("6_7vnj5")
-
-[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
-texture_repeat = 3
-position = Vector2(231, 853)
-scale = Vector2(2.59722, 3.39722)
-texture = ExtResource("6_7vnj5")
-
-[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
-texture_repeat = 3
-position = Vector2(1510, 853)
-scale = Vector2(2.59722, 3.39722)
-texture = ExtResource("6_7vnj5")
-
-[node name="Sprite2D7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
-texture_repeat = 3
-position = Vector2(619, 853)
-scale = Vector2(2.59722, 3.39722)
-texture = ExtResource("6_7vnj5")
-
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 4096
 position = Vector2(0, -12)
 motion_scale = Vector2(1.5, 1.5)
 motion_mirroring = Vector2(2000, 0)
@@ -471,7 +370,7 @@ autostart = true
 script = ExtResource("6_liwvp")
 
 [node name="TreeObstacle" parent="." instance=ExtResource("8_5xvai")]
-position = Vector2(2002, 1078)
+position = Vector2(-257, 1087)
 script = ExtResource("9_gmxkl")
 
 [node name="items" parent="." instance=ExtResource("13_xh82y")]
