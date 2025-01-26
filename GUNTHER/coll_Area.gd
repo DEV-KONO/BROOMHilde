@@ -1,4 +1,4 @@
-class_name HurtBox extends Area2D
+class_name coll_Gunther extends Area2D
 
 @export var damage : int = 1
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -12,6 +12,5 @@ func _process(delta: float) -> void:
 
 func AreaEntered(a : Area2D) -> void:
 	if a is HitBox:
-		a.takeDamage(damage)
 		a.get_gunthered(damage)
 	pass
