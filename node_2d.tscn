@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://pcs1dyw7uaa0"]
+[gd_scene load_steps=21 format=3 uid="uid://pcs1dyw7uaa0"]
 
 [ext_resource type="PackedScene" uid="uid://dnvq75oa4ieaj" path="res://player.tscn" id="1_cd4eq"]
 [ext_resource type="Script" path="res://parallax_background.gd" id="1_kjtu0"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dqvupm5u2jfqf" path="res://GUNTHER/Scenes/su_santidad_gunther.tscn" id="15_dag2e"]
 [ext_resource type="Script" path="res://game_over_screen.gd" id="17_x4uxq"]
 [ext_resource type="Texture2D" uid="uid://dhvn2vbalcavm" path="res://Props/Menu/death1.png" id="18_fv87k"]
+[ext_resource type="Script" path="res://label_score.gd" id="20_qemyt"]
 
 [node name="ParallaxScrollingScene" type="Node2D"]
 script = ExtResource("1_xleju")
@@ -495,12 +496,11 @@ player = NodePath("../CharacterBody2D")
 
 [node name="Game Over Screen" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 script = ExtResource("17_x4uxq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Game Over Screen"]
-position = Vector2(968.5, 539)
-scale = Vector2(9.655, 10.0556)
+position = Vector2(963, 538.999)
+scale = Vector2(9.71, 10.0556)
 texture = ExtResource("18_fv87k")
 
 [node name="Panel" type="Panel" parent="Game Over Screen"]
@@ -527,6 +527,29 @@ offset_right = 520.0
 offset_bottom = 804.0
 theme_override_font_sizes/font_size = 100
 icon_alignment = 1
+
+[node name="Label" type="Label" parent="Game Over Screen"]
+offset_left = 1323.0
+offset_top = 383.0
+offset_right = 1794.0
+offset_bottom = 575.0
+theme_override_colors/font_color = Color(1, 0.72549, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "text"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("20_qemyt")
+
+[node name="Label2" type="Label" parent="Game Over Screen"]
+offset_left = 26.0
+offset_top = 396.0
+offset_right = 504.0
+offset_bottom = 566.0
+theme_override_colors/font_color = Color(1, 0.72549, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "SCORE:"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_obstacle_spawn_timer_timeout"]
 [connection signal="timeout" from="ObstacleSpawnTimer" to="ObstacleSpawnTimer" method="_on_timeout"]
