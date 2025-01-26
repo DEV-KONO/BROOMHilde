@@ -139,7 +139,7 @@ position = Vector2(28.625, -237)
 shape = SubResource("RectangleShape2D_7uig2")
 
 [node name="HitBox" parent="." instance=ExtResource("3_0hffu")]
-collision_layer = 260
+collision_layer = 388
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(28.625, -237)
