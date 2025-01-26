@@ -14,5 +14,7 @@ func get_gunthered(_damage : int) -> void:
 	animation_player.play("EXPLOSION")
 
 func takeDamage(_damage : int) -> void:
+	var points : int = randi_range(20,150)
+	Global.increaseScore(points)
 	queue_free()
 	pass

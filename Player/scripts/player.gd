@@ -5,6 +5,8 @@ var cardinal_dir_y : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
 var health : int = 3
 
+var ammo : int = 3
+
 var bullet_path = preload("res://bullet.tscn")
 
 @onready var inmunity_timer: Timer = $InmunityTimer
@@ -34,10 +36,16 @@ func fire():
 	bullet.pos.y = position.y
 	get_tree().get_root().get_node(".").add_child(bullet)
 
+func reload() -> void:
+	ammo = 3
+
 func _physics_process(delta):
 	move_and_slide()
-	if Input.is_action_just_pressed("shoot"):  
+	if Input.is_action_just_pressed("Reload"):
+		reload()
+	if Input.is_action_just_pressed("shoot") && ammo > 0:  
 		fire()
+		ammo -=1
 
 
 func set_Direction() -> bool:
