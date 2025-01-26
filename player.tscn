@@ -1,11 +1,87 @@
-[gd_scene load_steps=20 format=3 uid="uid://dnvq75oa4ieaj"]
+[gd_scene load_steps=28 format=3 uid="uid://dnvq75oa4ieaj"]
 
 [ext_resource type="Script" path="res://Player/scripts/player.gd" id="1_de7ph"]
 [ext_resource type="Texture2D" uid="uid://bd7wayi0pqv7d" path="res://Player/sprites/Base_Escoba.png" id="2_o4wc8"]
 [ext_resource type="Script" path="res://Player/scripts/player_SM.gd" id="3_e70sp"]
+[ext_resource type="Texture2D" uid="uid://b63j1e4vnf23q" path="res://Player/sprites/Pecera_animacion-Sheet.png" id="3_s0d8i"]
 [ext_resource type="Script" path="res://Player/scripts/flying_SM.gd" id="4_hqgwc"]
+[ext_resource type="Texture2D" uid="uid://cghsiykkehu7g" path="res://Player/sprites/Estela_burbujas-Sheet.png" id="4_jchtf"]
 [ext_resource type="Script" path="res://Player/scripts/idle_SM.gd" id="5_jp34i"]
 [ext_resource type="PackedScene" uid="uid://xnx4nliwxaoi" path="res://GeneralNodes/HitBox/HitBox.tscn" id="6_sowum"]
+
+[sub_resource type="Animation" id="Animation_5riho"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_jdadv"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jatvj"]
+_data = {
+"RESET": SubResource("Animation_5riho"),
+"idle": SubResource("Animation_jdadv")
+}
+
+[sub_resource type="Animation" id="Animation_w5t58"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_o7hf8"]
+resource_name = "moverEstela"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xgtoi"]
+_data = {
+"RESET": SubResource("Animation_w5t58"),
+"moverEstela": SubResource("Animation_o7hf8")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2n36"]
 size = Vector2(31, 44.5)
@@ -36,6 +112,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Estela:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_q0wa4"]
 resource_name = "flash"
@@ -65,6 +153,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, false, true, false, true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Estela:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_cy118"]
 resource_name = "fly_Left_Down"
@@ -80,6 +180,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Estela:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_atvu8"]
@@ -97,6 +209,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0, 6]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Estela:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_r5qmk"]
 resource_name = "fly_Left_Up"
@@ -112,6 +236,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Estela:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_of8sw"]
@@ -129,6 +265,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [7, 13]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Estela:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_vrdyo"]
 resource_name = "fly_Right_Mid"
@@ -144,6 +292,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [14, 20]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Estela:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_bxxc3"]
@@ -161,6 +321,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0, 6]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Estela:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_mjhgc"]
 resource_name = "idle_Down"
@@ -176,6 +348,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [7, 13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Estela:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_uu60g"]
@@ -193,6 +377,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [14, 20]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Estela:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_3d80s"]
 resource_name = "idle_Up"
@@ -208,6 +404,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Estela:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_61pmh"]
@@ -233,6 +441,27 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_o4wc8")
 hframes = 7
 vframes = 3
+
+[node name="Poncho" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(26, -30)
+texture = ExtResource("3_s0d8i")
+hframes = 9
+
+[node name="Poncho" type="AnimationPlayer" parent="Sprite2D/Poncho"]
+libraries = {
+"": SubResource("AnimationLibrary_jatvj")
+}
+
+[node name="Estela" type="Sprite2D" parent="Sprite2D"]
+visible = false
+position = Vector2(-73.6667, 4.33333)
+texture = ExtResource("4_jchtf")
+hframes = 8
+
+[node name="Estela" type="AnimationPlayer" parent="Sprite2D/Estela"]
+libraries = {
+"": SubResource("AnimationLibrary_xgtoi")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, -11)
