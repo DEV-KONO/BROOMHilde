@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cne6nwq1x02kr"]
+
+[ext_resource type="Script" path="res://2Level/camara_Script.gd" id="1_ywytc"]
+
+[node name="camLvl2" type="Camera2D"]
+position = Vector2(960, 540)
+script = ExtResource("1_ywytc")
+player = NodePath("../CharacterBody2D")

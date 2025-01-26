@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bai6jqqmxy0or"]
+
+[ext_resource type="Script" path="res://2Level/obstaculos/obs_scripts/stalagmita.gd" id="1_27dxe"]
+[ext_resource type="Texture2D" uid="uid://cssoic212cf31" path="res://2Level/obstaculos/obs_sprites/stalagmite.png" id="1_k7rb4"]
+[ext_resource type="PackedScene" uid="uid://bsgusf4ohdr1p" path="res://GeneralNodes/HurtBox/HurtBox.tscn" id="2_ydfrb"]
+[ext_resource type="PackedScene" uid="uid://xnx4nliwxaoi" path="res://GeneralNodes/HitBox/HitBox.tscn" id="3_i4g0l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bjx6b"]
+radius = 25.0
+height = 226.0
+
+[node name="Stalagmita" type="Node2D"]
+script = ExtResource("1_27dxe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_k7rb4")
+
+[node name="HurtBox" parent="." instance=ExtResource("2_ydfrb")]
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(5, 2)
+shape = SubResource("CapsuleShape2D_bjx6b")
+
+[node name="HitBox" parent="." instance=ExtResource("3_i4g0l")]
+collision_layer = 384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(5, 2)
+shape = SubResource("CapsuleShape2D_bjx6b")

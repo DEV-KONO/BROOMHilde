@@ -498,6 +498,7 @@ player = NodePath("../CharacterBody2D")
 
 [node name="Game Over Screen" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 script = ExtResource("17_x4uxq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Game Over Screen"]

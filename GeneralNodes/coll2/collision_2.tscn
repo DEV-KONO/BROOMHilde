@@ -7,7 +7,7 @@
 size = Vector2(50, 1958.5)
 
 [node name="collision2" type="Node2D"]
-position = Vector2(2500, 525)
+position = Vector2(2500, 540)
 script = ExtResource("1_ii55b")
 
 [node name="Area2D" type="Area2D" parent="."]
