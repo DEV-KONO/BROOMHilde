@@ -8,6 +8,7 @@ var item_sprites = [preload("res://Item/Item_Sprites/Books.png"), preload("res:/
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.score = 0
 	pass # Replace with function body.
 
 

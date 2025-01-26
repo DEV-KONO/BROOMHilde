@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://pcs1dyw7uaa0"]
+[gd_scene load_steps=22 format=3 uid="uid://pcs1dyw7uaa0"]
 
 [ext_resource type="PackedScene" uid="uid://dnvq75oa4ieaj" path="res://player.tscn" id="1_cd4eq"]
 [ext_resource type="Script" path="res://parallax_background.gd" id="1_kjtu0"]
@@ -20,9 +20,11 @@
 [ext_resource type="Script" path="res://game_over_screen.gd" id="17_x4uxq"]
 [ext_resource type="Texture2D" uid="uid://dhvn2vbalcavm" path="res://Props/Menu/death1.png" id="18_fv87k"]
 [ext_resource type="Script" path="res://label_score.gd" id="20_qemyt"]
+[ext_resource type="Script" path="res://game_ui.gd" id="21_eyla6"]
 
 [node name="ParallaxScrollingScene" type="Node2D"]
 script = ExtResource("1_xleju")
+metadata/_edit_horizontal_guides_ = [114.0]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 follow_viewport_scale = 2.0
@@ -496,6 +498,7 @@ player = NodePath("../CharacterBody2D")
 
 [node name="Game Over Screen" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 script = ExtResource("17_x4uxq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Game Over Screen"]
@@ -548,6 +551,58 @@ offset_bottom = 566.0
 theme_override_colors/font_color = Color(1, 0.72549, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "SCORE:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameUI" type="CanvasLayer" parent="."]
+script = ExtResource("21_eyla6")
+
+[node name="Puntos" type="Label" parent="GameUI"]
+anchors_preset = -1
+anchor_right = 0.005
+anchor_bottom = 0.005
+offset_left = 10.0
+offset_top = 56.0
+offset_right = 355.4
+offset_bottom = 120.6
+theme_override_colors/font_color = Color(0.803005, 0.317412, 0.762023, 1)
+theme_override_colors/font_shadow_color = Color(0.330905, 0.0922016, 0.716627, 1)
+theme_override_colors/font_outline_color = Color(0.275174, 0.000639321, 0.430474, 1)
+theme_override_font_sizes/font_size = 50
+text = "Puntos"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Munición" type="Label" parent="GameUI"]
+anchors_preset = -1
+anchor_right = 0.005
+anchor_bottom = 0.005
+offset_left = 813.0
+offset_top = 55.0
+offset_right = 1158.4
+offset_bottom = 119.6
+theme_override_colors/font_color = Color(0.803922, 0.317647, 0.760784, 1)
+theme_override_colors/font_shadow_color = Color(0.329412, 0.0941176, 0.717647, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Munición
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Vidas" type="Label" parent="GameUI"]
+anchors_preset = -1
+anchor_right = 0.005
+anchor_bottom = 0.005
+offset_left = 1546.0
+offset_top = 61.0
+offset_right = 1891.4
+offset_bottom = 125.6
+theme_override_colors/font_color = Color(0.803922, 0.317647, 0.760784, 1)
+theme_override_colors/font_shadow_color = Color(0.329412, 0.0941176, 0.717647, 1)
+theme_override_colors/font_outline_color = Color(0.27451, 0, 0.431373, 1)
+theme_override_font_sizes/font_size = 50
+text = "Vidas"
 horizontal_alignment = 1
 vertical_alignment = 1
 

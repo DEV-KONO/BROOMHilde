@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnkkywjk5ufif"]
+
+[ext_resource type="Script" path="res://eraser.gd" id="1_ej2av"]
+[ext_resource type="Texture2D" uid="uid://b8b5w4g1gj6p5" path="res://Backgrounds/Pino normal .png" id="2_e3dnc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aje4f"]
+size = Vector2(17, 401)
+
+[node name="Eraser" type="Node2D"]
+script = ExtResource("1_ej2av")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, 190.5)
+shape = SubResource("RectangleShape2D_aje4f")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_e3dnc")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

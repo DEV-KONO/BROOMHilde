@@ -1,16 +1,17 @@
 extends Node2D
-@onready var character_body_2d: Player = $"../CharacterBody2D"
+@export var player : NodePath
 
-var age = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	set_process(true)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position += Vector2.LEFT * delta
-	print("age of tree: %s" % age)
-	age += delta
-		
+	#print(get_parent().get_child(2))
+	pass
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	area.queue_free()

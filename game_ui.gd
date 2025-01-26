@@ -1,7 +1,6 @@
-extends Node2D
+extends CanvasLayer
 @onready var character_body_2d: Player = $"../CharacterBody2D"
 
-var age = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,7 +9,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position += Vector2.LEFT * delta
-	print("age of tree: %s" % age)
-	age += delta
-		
+	get_child(0).text = "Puntuación: " + str(Global.score)
+	get_child(1).text = "Munición: " + str(character_body_2d.ammo)
+	get_child(2).text = "Vidas: " + str(character_body_2d.health)
+	if character_body_2d.ammo == 0:
+		get_child(1).text = "RELOAD!!!"
+	pass

@@ -1,5 +1,6 @@
 class_name Item extends Node2D
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
+@onready var character_body_2d: Player = $"../CharacterBody2D"
 
 func _ready() -> void:
 	$HitBox.Damaged.connect(takeDamage)
@@ -8,6 +9,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position += Vector2.LEFT * delta
+	if global_position.distance_to(character_body_2d.global_position) > 2000:
+		self.queue_free()
 	pass
 
 func get_gunthered(_damage : int) -> void:
