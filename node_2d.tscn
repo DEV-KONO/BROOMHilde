@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://pcs1dyw7uaa0"]
+[gd_scene load_steps=30 format=3 uid="uid://pcs1dyw7uaa0"]
 
 [ext_resource type="PackedScene" uid="uid://dnvq75oa4ieaj" path="res://player.tscn" id="1_cd4eq"]
 [ext_resource type="Script" path="res://parallax_background.gd" id="1_kjtu0"]
@@ -26,22 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://dhpsxdhxtucdj" path="res://Backgrounds/CASA.png" id="24_361gl"]
 [ext_resource type="Texture2D" uid="uid://l2ee07jdtbxb" path="res://Props/Menu/Broomhilde logo2.png" id="25_m0bop"]
 [ext_resource type="AudioStream" uid="uid://bboqnnwh8qi1y" path="res://Sounds/GGJ2025 BUBBLES.wav" id="25_oaaid"]
-[ext_resource type="Texture2D" uid="uid://cwlx6ax0tab4a" path="res://Animations/tira brujil.png" id="27_6vj4p"]
-
-[sub_resource type="Animation" id="Animation_d14rg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="Animation" id="Animation_xyhem"]
 resource_name = "Cinematica"
@@ -57,6 +41,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0, 4, 5, 4, 5, 7, 7, 9, 9]
+}
+
+[sub_resource type="Animation" id="Animation_d14rg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nuh1r"]
@@ -719,7 +718,6 @@ autoplay = true
 
 [node name="cinematica_sprite" type="Sprite2D" parent="."]
 position = Vector2(957, 547)
-texture = ExtResource("27_6vj4p")
 hframes = 10
 
 [node name="Cinematica" type="AnimationPlayer" parent="cinematica_sprite"]

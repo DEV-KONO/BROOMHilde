@@ -55,7 +55,7 @@ func _on_iniciar_pressed() -> void:
 	#get_tree().paused = false
 	main_menu.hide()
 	tutorial.show()
-	#Broomhilde.show()
+	Broomhilde.show()
 	#game_ui.show()
 	tutorial_timer.start()
 	
