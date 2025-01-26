@@ -2,7 +2,6 @@ class_name Item extends Node2D
 
 func _ready() -> void:
 	$HitBox.Damaged.connect(takeDamage)
-	print("ready")
 	pass
 
 func _process(delta: float) -> void:
@@ -10,5 +9,6 @@ func _process(delta: float) -> void:
 	pass
  
 func takeDamage(_damage : int) -> void:
-	queue_free()
+	#queue_free()
+	
 	pass
