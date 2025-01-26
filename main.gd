@@ -48,8 +48,9 @@ func _on_obstacle_spawn_timer_timeout() -> void:
 	add_child(item)
 
 
-func _on_button_2_pressed() -> void:
-	get_tree().quit()
+func _on_game_over_pressed() -> void:
+	#get_tree().quit()
+	get_tree().change_scene_to_file("res://creditos.tscn")
 
 func _on_iniciar_pressed() -> void:
 	#get_tree().paused = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://pcs1dyw7uaa0"]
+[gd_scene load_steps=37 format=3 uid="uid://pcs1dyw7uaa0"]
 
 [ext_resource type="PackedScene" uid="uid://dnvq75oa4ieaj" path="res://player.tscn" id="1_cd4eq"]
 [ext_resource type="Script" path="res://parallax_background.gd" id="1_kjtu0"]
@@ -24,11 +24,31 @@
 [ext_resource type="PackedScene" uid="uid://fyvx305mgd55" path="res://GeneralNodes/coll1/collision_1.tscn" id="21_f23su"]
 [ext_resource type="PackedScene" uid="uid://cdcngsum78l1b" path="res://GeneralNodes/coll2/collision_2.tscn" id="22_kptbr"]
 [ext_resource type="Texture2D" uid="uid://dhpsxdhxtucdj" path="res://Backgrounds/CASA.png" id="24_361gl"]
+[ext_resource type="Texture2D" uid="uid://c7lejh2ikdc46" path="res://Props/Sprites/Poncho_Chat_Burbuja-Sheet.png" id="25_7lr8e"]
+[ext_resource type="Script" path="res://tutorial.gd" id="25_fj13c"]
 [ext_resource type="Texture2D" uid="uid://l2ee07jdtbxb" path="res://Props/Menu/Broomhilde logo2.png" id="25_m0bop"]
 [ext_resource type="AudioStream" uid="uid://bboqnnwh8qi1y" path="res://Sounds/GGJ2025 BUBBLES.wav" id="25_oaaid"]
 [ext_resource type="Texture2D" uid="uid://cwlx6ax0tab4a" path="res://Animations/tira brujil.png" id="27_6vj4p"]
+[ext_resource type="Script" path="res://cinematica_sprite.gd" id="28_2e72k"]
 
-[sub_resource type="Animation" id="Animation_d14rg"]
+[sub_resource type="Animation" id="Animation_qiawx"]
+resource_name = "Talk"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_v1lsp"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -41,6 +61,12 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x844o"]
+_data = {
+"RESET": SubResource("Animation_v1lsp"),
+"Talk": SubResource("Animation_qiawx")
 }
 
 [sub_resource type="Animation" id="Animation_xyhem"]
@@ -59,6 +85,21 @@ tracks/0/keys = {
 "values": [0, 4, 5, 4, 5, 7, 7, 9, 9]
 }
 
+[sub_resource type="Animation" id="Animation_d14rg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nuh1r"]
 _data = {
 "Cinematica": SubResource("Animation_xyhem"),
@@ -69,448 +110,448 @@ _data = {
 script = ExtResource("1_xleju")
 metadata/_edit_horizontal_guides_ = [114.0]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="ambiente" type="ParallaxBackground" parent="."]
 follow_viewport_scale = 2.0
 scroll_ignore_camera_zoom = true
 script = ExtResource("1_kjtu0")
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ambiente"]
 motion_scale = Vector2(0.001, 0.001)
 motion_mirroring = Vector2(2000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="ambiente/ParallaxLayer"]
 texture_repeat = 3
 position = Vector2(1001, 540)
 texture = ExtResource("3_pcqnj")
 
-[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ambiente"]
 motion_scale = Vector2(0.01, 0.01)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
+[node name="Sprite2D" type="Sprite2D" parent="ambiente/ParallaxLayer8"]
 position = Vector2(1756, 137)
 texture = ExtResource("4_wamyf")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ambiente"]
 position = Vector2(0, -12)
 motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(1985, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+[node name="Sprite2D" type="Sprite2D" parent="ambiente/ParallaxLayer2"]
 texture_repeat = 3
 position = Vector2(1002, 550)
 texture = ExtResource("4_8hpv1")
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ambiente"]
 position = Vector2(0, -12)
 motion_scale = Vector2(0.25, 0.25)
 motion_offset = Vector2(0, -100)
 motion_mirroring = Vector2(2000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+[node name="Sprite2D" type="Sprite2D" parent="ambiente/ParallaxLayer3"]
 texture_repeat = 3
 position = Vector2(1002, 550)
 texture = ExtResource("5_2500f")
 
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ambiente"]
 position = Vector2(0, -12)
 motion_mirroring = Vector2(2000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+[node name="Sprite2D" type="Sprite2D" parent="ambiente/ParallaxLayer4"]
 texture_repeat = 3
 position = Vector2(992, 504)
 texture = ExtResource("6_ktka0")
 
-[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ambiente"]
 position = Vector2(0, -24)
 motion_scale = Vector2(0.8, 0.8)
 motion_mirroring = Vector2(2000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+[node name="Sprite2D" type="Sprite2D" parent="ambiente/ParallaxLayer7"]
 self_modulate = Color(0.75, 0.75, 0.75, 1)
 texture_repeat = 3
 position = Vector2(115, 844)
 scale = Vector2(2.57222, 3.32778)
 texture = ExtResource("7_fj3y1")
 
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+[node name="Sprite2D2" type="Sprite2D" parent="ambiente/ParallaxLayer7"]
 self_modulate = Color(0.75, 0.75, 0.75, 1)
 texture_repeat = 3
 position = Vector2(367.375, 850.375)
 scale = Vector2(2.63611, 3.475)
 texture = ExtResource("6_7vnj5")
 
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+[node name="Sprite2D3" type="Sprite2D" parent="ambiente/ParallaxLayer7"]
 self_modulate = Color(0.75, 0.75, 0.75, 1)
 texture_repeat = 3
 position = Vector2(1377, 895)
 scale = Vector2(2.47917, 3.075)
 texture = ExtResource("6_7vnj5")
 
-[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+[node name="Sprite2D4" type="Sprite2D" parent="ambiente/ParallaxLayer7"]
 self_modulate = Color(0.75, 0.75, 0.75, 1)
 texture_repeat = 3
 position = Vector2(1099, 901)
 scale = Vector2(2.47917, 3.075)
 texture = ExtResource("6_7vnj5")
 
-[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+[node name="Sprite2D5" type="Sprite2D" parent="ambiente/ParallaxLayer7"]
 self_modulate = Color(0.75, 0.75, 0.75, 1)
 texture_repeat = 3
 position = Vector2(1833, 904)
 scale = Vector2(2.47917, 3.075)
 texture = ExtResource("6_7vnj5")
 
-[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+[node name="Sprite2D6" type="Sprite2D" parent="ambiente/ParallaxLayer7"]
 self_modulate = Color(0.75, 0.75, 0.75, 1)
 texture_repeat = 3
 position = Vector2(536, 895)
 scale = Vector2(2.47917, 3.075)
 texture = ExtResource("6_7vnj5")
 
-[node name="Sprite2D7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+[node name="Sprite2D7" type="Sprite2D" parent="ambiente/ParallaxLayer7"]
 self_modulate = Color(0.75, 0.75, 0.75, 1)
 texture_repeat = 3
 position = Vector2(1211, 865)
 scale = Vector2(2.57222, 3.32778)
 texture = ExtResource("7_fj3y1")
 
-[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ambiente"]
 position = Vector2(0, -12)
 motion_scale = Vector2(0.85, 0.85)
 motion_mirroring = Vector2(2000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+[node name="Sprite2D" type="Sprite2D" parent="ambiente/ParallaxLayer6"]
 texture_repeat = 3
 position = Vector2(1020.13, 834.875)
 scale = Vector2(2.59722, 3.39722)
 texture = ExtResource("7_fj3y1")
 
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+[node name="Sprite2D2" type="Sprite2D" parent="ambiente/ParallaxLayer6"]
 texture_repeat = 3
 position = Vector2(1681, 812)
 scale = Vector2(2.61945, 3.83055)
 texture = ExtResource("7_fj3y1")
 
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+[node name="Sprite2D3" type="Sprite2D" parent="ambiente/ParallaxLayer6"]
 self_modulate = Color(0.75, 0.75, 0.75, 1)
 texture_repeat = 3
 position = Vector2(725.625, 785.875)
 scale = Vector2(2.96389, 4.175)
 texture = ExtResource("6_7vnj5")
 
-[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+[node name="Sprite2D4" type="Sprite2D" parent="ambiente/ParallaxLayer6"]
 texture_repeat = 3
 position = Vector2(835, 853)
 scale = Vector2(2.59722, 3.39722)
 texture = ExtResource("7_fj3y1")
 
-[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+[node name="Sprite2D5" type="Sprite2D" parent="ambiente/ParallaxLayer6"]
 texture_repeat = 3
 position = Vector2(231, 853)
 scale = Vector2(2.59722, 3.39722)
 texture = ExtResource("7_fj3y1")
 
-[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+[node name="Sprite2D6" type="Sprite2D" parent="ambiente/ParallaxLayer6"]
 texture_repeat = 3
 position = Vector2(1510, 853)
 scale = Vector2(2.59722, 3.39722)
 texture = ExtResource("6_7vnj5")
 
-[node name="Sprite2D7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+[node name="Sprite2D7" type="Sprite2D" parent="ambiente/ParallaxLayer6"]
 texture_repeat = 3
 position = Vector2(619, 853)
 scale = Vector2(2.59722, 3.39722)
 texture = ExtResource("7_fj3y1")
 
-[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ambiente"]
 position = Vector2(0, -12)
 motion_scale = Vector2(1.5, 1.5)
 motion_mirroring = Vector2(2000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(83, 1006)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D2" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(176, 1027)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D3" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(259, 1003)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D4" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(323, 1030)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D5" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(416, 1051)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D6" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(499, 1027)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D7" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(563, 1009)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D8" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D8" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(656, 1030)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D9" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D9" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(739, 1006)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D10" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D10" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(803, 1033)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D11" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D11" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(896, 1054)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D12" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D12" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(979, 1030)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D13" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D13" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1081, 1012)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D14" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D14" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1174, 1033)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D15" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D15" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1257, 1009)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D16" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D16" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1321, 1036)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D17" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D17" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1414, 1057)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D18" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D18" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1497, 1033)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D19" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D19" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1561, 1015)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D20" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D20" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1654, 1036)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D21" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D21" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1737, 1012)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D22" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D22" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1801, 1039)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D23" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D23" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1894, 1060)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D24" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D24" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1977, 1036)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D25" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D25" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(59, 1063)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D26" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D26" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(152, 1084)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D27" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D27" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(235, 1060)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D28" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D28" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(299, 1087)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D29" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D29" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(392, 1108)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D30" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D30" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(475, 1084)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D31" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D31" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(539, 1066)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D32" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D32" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(632, 1087)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D33" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D33" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(715, 1063)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D34" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D34" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(779, 1090)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D35" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D35" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(872, 1111)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D36" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D36" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(955, 1087)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D37" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D37" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1057, 1069)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D38" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D38" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1150, 1090)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D39" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D39" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1233, 1066)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D40" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D40" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1297, 1093)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D41" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D41" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1390, 1114)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D42" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D42" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1473, 1090)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D43" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D43" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1537, 1072)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D44" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D44" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1630, 1093)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D45" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D45" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1713, 1069)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D46" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D46" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1777, 1096)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D47" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D47" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1870, 1117)
 scale = Vector2(3, 3)
 texture = ExtResource("7_u68ws")
 
-[node name="Sprite2D48" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Sprite2D48" type="Sprite2D" parent="ambiente/ParallaxLayer5"]
 texture_repeat = 3
 position = Vector2(1953, 1093)
 scale = Vector2(3, 3)
@@ -558,7 +599,7 @@ self_modulate = Color(1, 1, 1, 0)
 offset_right = 1922.0
 offset_bottom = 1083.0
 
-[node name="Button" type="Button" parent="Game Over Screen"]
+[node name="retry" type="Button" parent="Game Over Screen"]
 self_modulate = Color(1, 1, 1, 0)
 offset_left = 1338.0
 offset_top = 566.0
@@ -569,7 +610,7 @@ text = "
 "
 icon_alignment = 1
 
-[node name="Button2" type="Button" parent="Game Over Screen"]
+[node name="game_over" type="Button" parent="Game Over Screen"]
 self_modulate = Color(0.99, 0.99, 0.99, 0)
 offset_left = 47.0
 offset_top = 581.0
@@ -661,6 +702,7 @@ position = Vector2(3000, 500)
 
 [node name="Tutorial" type="CanvasLayer" parent="."]
 visible = false
+script = ExtResource("25_fj13c")
 
 [node name="Panel" type="Panel" parent="Tutorial"]
 offset_right = 1925.0
@@ -680,6 +722,18 @@ DISPARA A LOS OBJETOS
 ESQUIVA LAS ESPINAS Y LOS ARBOLES!!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="poncho_hablando" type="Sprite2D" parent="Tutorial"]
+process_mode = 3
+position = Vector2(314, 431)
+scale = Vector2(3, 3)
+texture = ExtResource("25_7lr8e")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tutorial/poncho_hablando"]
+libraries = {
+"": SubResource("AnimationLibrary_x844o")
+}
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -718,9 +772,11 @@ volume_db = -10.0
 autoplay = true
 
 [node name="cinematica_sprite" type="Sprite2D" parent="."]
+process_mode = 3
 position = Vector2(957, 547)
 texture = ExtResource("27_6vj4p")
 hframes = 10
+script = ExtResource("28_2e72k")
 
 [node name="Cinematica" type="AnimationPlayer" parent="cinematica_sprite"]
 process_mode = 3
@@ -736,9 +792,8 @@ one_shot = true
 
 [connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_obstacle_spawn_timer_timeout"]
 [connection signal="timeout" from="ObstacleSpawnTimer" to="ObstacleSpawnTimer" method="_on_timeout"]
-[connection signal="pressed" from="Game Over Screen/Button" to="Game Over Screen" method="_on_button_pressed"]
-[connection signal="pressed" from="Game Over Screen/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Game Over Screen/Button2" to="Game Over Screen" method="_on_button_pressed"]
+[connection signal="pressed" from="Game Over Screen/retry" to="Game Over Screen" method="_on_button_pressed"]
+[connection signal="pressed" from="Game Over Screen/game_over" to="." method="_on_game_over_pressed"]
 [connection signal="pressed" from="MainMenu/Iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="animation_finished" from="cinematica_sprite/Cinematica" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="tutorial_timer" to="." method="_on_tutorial_timer_timeout"]
