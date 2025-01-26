@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcj3w4yx4sh7r"]
+[gd_scene load_steps=10 format=3 uid="uid://dcj3w4yx4sh7r"]
 
 [ext_resource type="Script" path="res://2Level/cuevaSCRIPT.gd" id="1_4ccx8"]
 [ext_resource type="Script" path="res://2Level/Background lvl2/parallaxBG.gd" id="1_s20ei"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bai6jqqmxy0or" path="res://2Level/obstaculos/stalagmita.tscn" id="7_ldg5n"]
 [ext_resource type="PackedScene" uid="uid://bn8euyxnvtn5i" path="res://2Level/obstaculos/collision_3.tscn" id="8_css7i"]
 [ext_resource type="PackedScene" uid="uid://cipxt6awejam7" path="res://2Level/obstaculos/collision_4.tscn" id="9_j5hvd"]
-[ext_resource type="Script" path="res://2Level/timer.gd" id="10_r5g07"]
 
 [node name="Cueva" type="Node2D"]
 script = ExtResource("1_4ccx8")
@@ -19,7 +18,6 @@ scroll_ignore_camera_zoom = true
 script = ExtResource("1_s20ei")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-texture_repeat = 3
 motion_mirroring = Vector2(2000, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
@@ -36,14 +34,8 @@ position = Vector2(0, 540)
 position = Vector2(631, 4)
 
 [node name="Stalagmita" parent="." instance=ExtResource("7_ldg5n")]
-position = Vector2(1638, 1086)
+position = Vector2(1630, 987)
 
 [node name="collision3" parent="." instance=ExtResource("8_css7i")]
 
 [node name="collision4" parent="." instance=ExtResource("9_j5hvd")]
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-script = ExtResource("10_r5g07")
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
