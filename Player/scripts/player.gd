@@ -27,8 +27,10 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	direction = Vector2(Input.get_axis("move_Left","move_Right"), Input.get_axis("move_Up","move_Down")).normalized()
-	
+	if not Global.stopInput:
+		direction = Vector2(Input.get_axis("move_Left","move_Right"), Input.get_axis("move_Up","move_Down")).normalized()
+	else:
+		direction = Vector2.RIGHT * 500
 	if position.y < 72:
 		position.y = 72
 	elif position.y > 1020:

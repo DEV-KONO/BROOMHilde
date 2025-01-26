@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://game_ui.gd" id="21_eyla6"]
 [ext_resource type="PackedScene" uid="uid://fyvx305mgd55" path="res://GeneralNodes/coll1/collision_1.tscn" id="21_f23su"]
 [ext_resource type="PackedScene" uid="uid://cdcngsum78l1b" path="res://GeneralNodes/coll2/collision_2.tscn" id="22_kptbr"]
+[ext_resource type="FontFile" uid="uid://ewbkgmrx6ssa" path="res://font/KiriFont.ttf" id="23_wuked"]
 [ext_resource type="Texture2D" uid="uid://dhpsxdhxtucdj" path="res://Backgrounds/CASA.png" id="24_361gl"]
 [ext_resource type="Texture2D" uid="uid://c7lejh2ikdc46" path="res://Props/Sprites/Poncho_Chat_Burbuja-Sheet.png" id="25_7lr8e"]
 [ext_resource type="Script" path="res://tutorial.gd" id="25_fj13c"]
@@ -654,9 +655,10 @@ offset_left = 10.0
 offset_top = 56.0
 offset_right = 355.4
 offset_bottom = 120.6
-theme_override_colors/font_color = Color(0.803005, 0.317412, 0.762023, 1)
-theme_override_colors/font_shadow_color = Color(0.330905, 0.0922016, 0.716627, 1)
-theme_override_colors/font_outline_color = Color(0.275174, 0.000639321, 0.430474, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.831373, 0.666667, 1, 1)
+theme_override_colors/font_outline_color = Color(0.832512, 0.664806, 1, 1)
+theme_override_fonts/font = ExtResource("23_wuked")
 theme_override_font_sizes/font_size = 50
 text = "Puntos"
 horizontal_alignment = 1
@@ -670,9 +672,10 @@ offset_left = 813.0
 offset_top = 55.0
 offset_right = 1158.4
 offset_bottom = 119.6
-theme_override_colors/font_color = Color(0.803922, 0.317647, 0.760784, 1)
-theme_override_colors/font_shadow_color = Color(0.329412, 0.0941176, 0.717647, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.831373, 0.666667, 1, 1)
+theme_override_colors/font_outline_color = Color(0.831373, 0.666667, 1, 1)
+theme_override_fonts/font = ExtResource("23_wuked")
 theme_override_font_sizes/font_size = 50
 text = "Munición
 "
@@ -687,9 +690,10 @@ offset_left = 1546.0
 offset_top = 61.0
 offset_right = 1891.4
 offset_bottom = 125.6
-theme_override_colors/font_color = Color(0.803922, 0.317647, 0.760784, 1)
-theme_override_colors/font_shadow_color = Color(0.329412, 0.0941176, 0.717647, 1)
-theme_override_colors/font_outline_color = Color(0.27451, 0, 0.431373, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.831373, 0.666667, 1, 1)
+theme_override_colors/font_outline_color = Color(0.831373, 0.666667, 1, 1)
+theme_override_fonts/font = ExtResource("23_wuked")
 theme_override_font_sizes/font_size = 50
 text = "Vidas"
 horizontal_alignment = 1
@@ -713,7 +717,8 @@ offset_left = -1.0
 offset_top = -3.0
 offset_right = 1922.0
 offset_bottom = 1089.0
-theme_override_font_sizes/font_size = 80
+theme_override_fonts/font = ExtResource("23_wuked")
+theme_override_font_sizes/font_size = 70
 text = "W,A,S,D : Mover
 Espacio: Disparar
 R: Recargar
@@ -749,16 +754,18 @@ offset_left = 498.0
 offset_top = 13.0
 offset_right = 1365.0
 offset_bottom = 218.0
+theme_override_fonts/font = ExtResource("23_wuked")
 theme_override_font_sizes/font_size = 150
 text = "BroomHilde"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Iniciar" type="Button" parent="MainMenu"]
-offset_left = 824.0
-offset_top = 530.0
-offset_right = 1132.0
-offset_bottom = 675.0
+offset_left = 738.0
+offset_top = 520.0
+offset_right = 1172.0
+offset_bottom = 665.0
+theme_override_fonts/font = ExtResource("23_wuked")
 theme_override_font_sizes/font_size = 100
 text = "Iniciar"
 
@@ -774,7 +781,6 @@ autoplay = true
 [node name="cinematica_sprite" type="Sprite2D" parent="."]
 process_mode = 3
 position = Vector2(957, 547)
-texture = ExtResource("27_6vj4p")
 hframes = 10
 script = ExtResource("28_2e72k")
 
