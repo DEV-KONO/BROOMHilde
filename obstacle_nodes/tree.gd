@@ -10,7 +10,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position += Vector2.LEFT * delta
-	print("age of tree: %s" % age)
-	age += delta
-		
+	position += Vector2.LEFT * delta	
