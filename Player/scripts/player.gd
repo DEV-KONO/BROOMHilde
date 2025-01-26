@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 		position.y = 72
 	elif position.y > 1020:
 		position.y = 1020
+	
 	pass
 
 func fire():
@@ -35,8 +36,9 @@ func fire():
 
 func _physics_process(delta):
 	move_and_slide()
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot"):  
 		fire()
+
 
 func set_Direction() -> bool:
 	var new_dir_x : Vector2 = cardinal_dir_x
@@ -118,6 +120,10 @@ func takeDamage(_damage: int) -> void:
 		animation_player.play("RESET")
 		sprite.visible = true
 		sprite.modulate = Color(1, 1, 1, 1) 
+	if health <= 0:
+		die()
+	pass
 
-
-pass
+func die():
+	
+	pass
