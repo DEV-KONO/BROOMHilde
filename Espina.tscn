@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://6jy20he7r3ge"]
+
+[ext_resource type="Script" path="res://espina.gd" id="1_2gy62"]
+[ext_resource type="PackedScene" uid="uid://bsgusf4ohdr1p" path="res://GeneralNodes/HurtBox/HurtBox.tscn" id="1_5n21n"]
+[ext_resource type="Texture2D" uid="uid://cwuw3vwa8oolu" path="res://Props/Sprites/Proyectil.png" id="1_f4nuh"]
+[ext_resource type="PackedScene" uid="uid://xnx4nliwxaoi" path="res://GeneralNodes/HitBox/HitBox.tscn" id="3_i4dgf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3738o"]
+radius = 2.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r7l5v"]
+radius = 2.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4bg2u"]
+radius = 2.0
+height = 28.0
+
+[node name="Espina" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_2gy62")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(12, 0)
+texture = ExtResource("1_f4nuh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3738o")
+disabled = true
+
+[node name="HurtBox" parent="." instance=ExtResource("1_5n21n")]
+position = Vector2(-31, 34)
+collision_mask = 1
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(43, -34)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_r7l5v")
+
+[node name="HitBox" parent="." instance=ExtResource("3_i4dgf")]
+collision_layer = 384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(12, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4bg2u")

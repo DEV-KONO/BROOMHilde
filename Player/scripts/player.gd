@@ -13,11 +13,17 @@ var bullet_path = preload("res://bullet.tscn")
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var state_machine: Node = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var Poncho: AnimationPlayer = $Sprite2D/Poncho/Poncho
+@onready var estela: AnimationPlayer = $Sprite2D/Estela/Estela
+
+
 var is_flashing: bool = false
 
 func _ready() -> void:
 	state_machine.Initialize(self)
 	$HitBox.Damaged.connect(takeDamage)
+	Poncho.play("idle")
+	estela.play("moverEstela")
 	pass
 
 func _process(delta: float) -> void:

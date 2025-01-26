@@ -5,6 +5,7 @@ class_name Item extends Node2D
 func _ready() -> void:
 	$HitBox.Damaged.connect(takeDamage)
 	$HitBox.Get_Gunthered.connect(get_gunthered)
+	$HitBox.Deleted.connect(get_deleted)
 	pass
 
 func _process(delta: float) -> void:
@@ -21,3 +22,7 @@ func takeDamage(_damage : int) -> void:
 	Global.increaseScore(points)
 	queue_free()
 	pass
+
+func get_deleted(_damaeg : int) -> void:
+	queue_free()
+	print("ITEM ELIMINADO")

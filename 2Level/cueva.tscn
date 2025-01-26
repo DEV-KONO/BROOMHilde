@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://dcj3w4yx4sh7r"]
+
+[ext_resource type="Script" path="res://2Level/cuevaSCRIPT.gd" id="1_4ccx8"]
+[ext_resource type="Script" path="res://2Level/Background lvl2/parallaxBG.gd" id="1_s20ei"]
+[ext_resource type="Texture2D" uid="uid://bme001dponmew" path="res://2Level/Background lvl2/Cueva fondo .png" id="2_xglt0"]
+[ext_resource type="PackedScene" uid="uid://cne6nwq1x02kr" path="res://2Level/cam_lvl_2.tscn" id="4_552ta"]
+[ext_resource type="PackedScene" uid="uid://dnvq75oa4ieaj" path="res://player.tscn" id="4_rbfqv"]
+[ext_resource type="PackedScene" uid="uid://c4hferiritu8v" path="res://2Level/obstaculos/stalactita.tscn" id="6_mjgcp"]
+[ext_resource type="PackedScene" uid="uid://bai6jqqmxy0or" path="res://2Level/obstaculos/stalagmita.tscn" id="7_ldg5n"]
+[ext_resource type="PackedScene" uid="uid://bn8euyxnvtn5i" path="res://2Level/obstaculos/collision_3.tscn" id="8_css7i"]
+[ext_resource type="PackedScene" uid="uid://cipxt6awejam7" path="res://2Level/obstaculos/collision_4.tscn" id="9_j5hvd"]
+
+[node name="Cueva" type="Node2D"]
+script = ExtResource("1_4ccx8")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+script = ExtResource("1_s20ei")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 3
+position = Vector2(1000, 540)
+texture = ExtResource("2_xglt0")
+
+[node name="camLvl2" parent="." instance=ExtResource("4_552ta")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_rbfqv")]
+position = Vector2(0, 540)
+
+[node name="Stalactita" parent="." instance=ExtResource("6_mjgcp")]
+position = Vector2(631, 4)
+
+[node name="Stalagmita" parent="." instance=ExtResource("7_ldg5n")]
+position = Vector2(1630, 987)
+
+[node name="collision3" parent="." instance=ExtResource("8_css7i")]
+
+[node name="collision4" parent="." instance=ExtResource("9_j5hvd")]

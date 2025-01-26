@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://fyvx305mgd55"]
+
+[ext_resource type="Script" path="res://GeneralNodes/coll1/collision_1.gd" id="1_ob0vp"]
+[ext_resource type="Script" path="res://GeneralNodes/coll1/area_coll1.gd" id="3_noe75"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8d1j"]
+size = Vector2(50, 1958.5)
+
+[node name="collision1" type="Node2D"]
+position = Vector2(-758, 500)
+script = ExtResource("1_ob0vp")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("3_noe75")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_b8d1j")

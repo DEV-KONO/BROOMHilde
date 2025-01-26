@@ -14,4 +14,4 @@ func _physics_process(delta: float) -> void:
 
 func get_deleted(_damaeg : int) -> void:
 	queue_free()
-	print("BURBUJA ELIMINADO")
+	print("ESPINA ELIMINADO")
