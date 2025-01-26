@@ -1,25 +1,27 @@
-[gd_scene load_steps=16 format=3 uid="uid://pcs1dyw7uaa0"]
+[gd_scene load_steps=20 format=3 uid="uid://pcs1dyw7uaa0"]
 
 [ext_resource type="PackedScene" uid="uid://dnvq75oa4ieaj" path="res://player.tscn" id="1_cd4eq"]
 [ext_resource type="Script" path="res://parallax_background.gd" id="1_kjtu0"]
 [ext_resource type="Script" path="res://main.gd" id="1_xleju"]
-[ext_resource type="Texture2D" uid="uid://i1kvea06di7e" path="res://Backgrounds/Atardecer .png" id="2_i0v2a"]
+[ext_resource type="Texture2D" uid="uid://dcdp78qf62gpe" path="res://Backgrounds/Fondo de noche .png" id="3_pcqnj"]
 [ext_resource type="Texture2D" uid="uid://djiqucs1uaj6f" path="res://Backgrounds/Montañas nevadas .png" id="4_8hpv1"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="4_e6e3e"]
+[ext_resource type="Texture2D" uid="uid://8ako8qnqyvuc" path="res://Backgrounds/Luna buena v2.png" id="4_wamyf"]
 [ext_resource type="Texture2D" uid="uid://c5v1oxgc5boii" path="res://Backgrounds/Montañas verdes.png" id="5_2500f"]
 [ext_resource type="Texture2D" uid="uid://dw5k4ane8dco6" path="res://Backgrounds/Pino mágico .png" id="6_7vnj5"]
 [ext_resource type="Texture2D" uid="uid://bu3rtb4etlrsj" path="res://Backgrounds/Montañitas v...png" id="6_ktka0"]
 [ext_resource type="Script" path="res://timer.gd" id="6_liwvp"]
+[ext_resource type="Texture2D" uid="uid://b8b5w4g1gj6p5" path="res://Backgrounds/Pino normal .png" id="7_fj3y1"]
 [ext_resource type="Texture2D" uid="uid://cajshrt1xcmiy" path="res://Backgrounds/Arbusto.png" id="7_u68ws"]
 [ext_resource type="PackedScene" uid="uid://88l8ja7uuxs5" path="res://obstacle_nodes/tree.tscn" id="8_5xvai"]
 [ext_resource type="Script" path="res://obstacle_nodes/tree.gd" id="9_gmxkl"]
 [ext_resource type="PackedScene" uid="uid://vcw6pukvowoc" path="res://Item/items.tscn" id="13_xh82y"]
 [ext_resource type="PackedScene" uid="uid://dqvupm5u2jfqf" path="res://GUNTHER/Scenes/su_santidad_gunther.tscn" id="15_dag2e"]
+[ext_resource type="Script" path="res://game_over_screen.gd" id="17_x4uxq"]
+[ext_resource type="Texture2D" uid="uid://dhvn2vbalcavm" path="res://Props/Menu/death1.png" id="18_fv87k"]
 
 [node name="ParallaxScrollingScene" type="Node2D"]
 script = ExtResource("1_xleju")
-metadata/_edit_horizontal_guides_ = [538.0, 595.0, 87.0, 48.0, 1009.0]
-metadata/_edit_vertical_guides_ = [-722.0, -372.0]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 follow_viewport_scale = 2.0
@@ -33,7 +35,15 @@ motion_mirroring = Vector2(2000, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_repeat = 3
 position = Vector2(1001, 540)
-texture = ExtResource("2_i0v2a")
+texture = ExtResource("3_pcqnj")
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.01, 0.01)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
+position = Vector2(1756, 137)
+texture = ExtResource("4_wamyf")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(0, -12)
@@ -75,7 +85,7 @@ self_modulate = Color(0.75, 0.75, 0.75, 1)
 texture_repeat = 3
 position = Vector2(115, 844)
 scale = Vector2(2.57222, 3.32778)
-texture = ExtResource("6_7vnj5")
+texture = ExtResource("7_fj3y1")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
 self_modulate = Color(0.75, 0.75, 0.75, 1)
@@ -117,7 +127,7 @@ self_modulate = Color(0.75, 0.75, 0.75, 1)
 texture_repeat = 3
 position = Vector2(1211, 865)
 scale = Vector2(2.57222, 3.32778)
-texture = ExtResource("6_7vnj5")
+texture = ExtResource("7_fj3y1")
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(0, -12)
@@ -128,15 +138,16 @@ motion_mirroring = Vector2(2000, 0)
 texture_repeat = 3
 position = Vector2(1020.13, 834.875)
 scale = Vector2(2.59722, 3.39722)
-texture = ExtResource("6_7vnj5")
+texture = ExtResource("7_fj3y1")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
 texture_repeat = 3
 position = Vector2(1681, 812)
 scale = Vector2(2.61945, 3.83055)
-texture = ExtResource("6_7vnj5")
+texture = ExtResource("7_fj3y1")
 
 [node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
 texture_repeat = 3
 position = Vector2(725.625, 785.875)
 scale = Vector2(2.96389, 4.175)
@@ -146,13 +157,13 @@ texture = ExtResource("6_7vnj5")
 texture_repeat = 3
 position = Vector2(835, 853)
 scale = Vector2(2.59722, 3.39722)
-texture = ExtResource("6_7vnj5")
+texture = ExtResource("7_fj3y1")
 
 [node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
 texture_repeat = 3
 position = Vector2(231, 853)
 scale = Vector2(2.59722, 3.39722)
-texture = ExtResource("6_7vnj5")
+texture = ExtResource("7_fj3y1")
 
 [node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
 texture_repeat = 3
@@ -164,7 +175,7 @@ texture = ExtResource("6_7vnj5")
 texture_repeat = 3
 position = Vector2(619, 853)
 scale = Vector2(2.59722, 3.39722)
-texture = ExtResource("6_7vnj5")
+texture = ExtResource("7_fj3y1")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(0, -12)
@@ -482,5 +493,43 @@ position = Vector2(-949, 412)
 position = Vector2(-403, 476)
 player = NodePath("../CharacterBody2D")
 
+[node name="Game Over Screen" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("17_x4uxq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game Over Screen"]
+position = Vector2(968.5, 539)
+scale = Vector2(9.655, 10.0556)
+texture = ExtResource("18_fv87k")
+
+[node name="Panel" type="Panel" parent="Game Over Screen"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 1922.0
+offset_bottom = 1083.0
+
+[node name="Button" type="Button" parent="Game Over Screen"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1338.0
+offset_top = 566.0
+offset_right = 1811.0
+offset_bottom = 799.0
+theme_override_font_sizes/font_size = 100
+text = "
+"
+icon_alignment = 1
+
+[node name="Button2" type="Button" parent="Game Over Screen"]
+self_modulate = Color(0.99, 0.99, 0.99, 0)
+offset_left = 47.0
+offset_top = 581.0
+offset_right = 520.0
+offset_bottom = 804.0
+theme_override_font_sizes/font_size = 100
+icon_alignment = 1
+
 [connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_obstacle_spawn_timer_timeout"]
 [connection signal="timeout" from="ObstacleSpawnTimer" to="ObstacleSpawnTimer" method="_on_timeout"]
+[connection signal="pressed" from="Game Over Screen/Button" to="Game Over Screen" method="_on_button_pressed"]
+[connection signal="pressed" from="Game Over Screen/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Game Over Screen/Button2" to="Game Over Screen" method="_on_button_pressed"]

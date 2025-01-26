@@ -24,3 +24,7 @@ func _on_obstacle_spawn_timer_timeout() -> void:
 	item.position = camara.get_cam_pos() + Vector2(randf_range(1200, 2000), randf_range(-530,87))
 	add_child(tree)
 	add_child(item)
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().quit()

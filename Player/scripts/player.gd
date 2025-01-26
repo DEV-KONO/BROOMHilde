@@ -118,6 +118,9 @@ func takeDamage(_damage: int) -> void:
 		animation_player.play("RESET")
 		sprite.visible = true
 		sprite.modulate = Color(1, 1, 1, 1) 
+	if health <= 0:
+		die()
 
-
-pass
+func die() -> void:
+	get_node("../Game Over Screen").Game_Over()
+	
