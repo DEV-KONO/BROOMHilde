@@ -2,6 +2,11 @@ extends Node2D
 @export var player : NodePath
 var y_dir = 1
 var speed = 600
+
+@onready var disparo: Timer = $Disparo
+
+var bullet_path = preload("res://Espina.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_process(true)
@@ -18,3 +23,15 @@ func _process(delta: float) -> void:
 			y_dir *= -1
 		elif self.position.y > 1000:
 			y_dir *= -1
+	
+	if disparo.is_stopped():
+		fire()
+		disparo.start()
+	
+
+
+func fire():
+	var bullet = bullet_path.instantiate()
+	bullet.pos.x = position.x + 200
+	bullet.pos.y = position.y
+	get_tree().get_root().get_node(".").add_child(bullet)
