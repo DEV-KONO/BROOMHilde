@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqvupm5u2jfqf"]
+
+[ext_resource type="Script" path="res://GUNTHER/Scenes/su_santidad_gunther.gd" id="1_gx7vr"]
+[ext_resource type="Texture2D" uid="uid://blpq8ifa4yju6" path="res://GUNTHER/Sprites/Gunther_64x64.png" id="1_nh13o"]
+[ext_resource type="Script" path="res://GUNTHER/coll_Area.gd" id="4_a2fs7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xe5hy"]
+radius = 53.0
+height = 218.0
+
+[node name="Su_Santidad_Gunther" type="Node2D"]
+script = ExtResource("1_gx7vr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_nh13o")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("4_a2fs7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 30)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xe5hy")

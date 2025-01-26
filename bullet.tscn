@@ -1,24 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://dycqq84x0jwar"]
+[gd_scene load_steps=6 format=3 uid="uid://dc48al8vms8bw"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_6ke45"]
-[ext_resource type="Texture2D" uid="uid://cyc8h72pqek5j" path="res://Props/Sprites/bubble_test.webp" id="2_fwvmr"]
-[ext_resource type="PackedScene" uid="uid://bsgusf4ohdr1p" path="res://GeneralNodes/HurtBox/HurtBox.tscn" id="3_m7eti"]
+[ext_resource type="Texture2D" uid="uid://biimeoh5ao3my" path="res://Props/Sprites/Burbuja.png" id="1_arcn3"]
+[ext_resource type="PackedScene" uid="uid://bsgusf4ohdr1p" path="res://GeneralNodes/HurtBox/HurtBox.tscn" id="2_lk0u8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_84bqq"]
-radius = 61.0082
+[sub_resource type="CircleShape2D" id="CircleShape2D_sujsg"]
+radius = 18.1108
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h027v"]
+radius = 18.0278
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_6ke45")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3.5, 3.5)
-texture = ExtResource("2_c4kp1")
+texture = ExtResource("1_arcn3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 2)
-shape = SubResource("CircleShape2D_84bqq")
+shape = SubResource("CircleShape2D_sujsg")
 
-[node name="HurtBox" parent="." instance=ExtResource("3_m7eti")]
+[node name="HurtBox" parent="." instance=ExtResource("2_lk0u8")]
+damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("CircleShape2D_84bqq")
+shape = SubResource("CircleShape2D_h027v")

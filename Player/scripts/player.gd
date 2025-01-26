@@ -105,7 +105,7 @@ func takeDamage(_damage: int) -> void:
 		sprite.visible = true  
 		sprite.modulate = Color(1, 1, 1, 1)  
 		animation_player.play("flash")
-		print("Took damage", health)
+		print("Health: ", health)
 		
 		var timer = get_tree().create_timer(0.35)  
 		await timer.timeout
