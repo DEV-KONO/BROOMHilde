@@ -15,6 +15,7 @@ var bullet_path = preload("res://bullet.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var Poncho: AnimationPlayer = $Sprite2D/Poncho/Poncho
 @onready var estela: AnimationPlayer = $Sprite2D/Estela/Estela
+@onready var reload_anim: AnimationPlayer = $Sprite2D/Reload/reload
 
 
 var is_flashing: bool = false
@@ -51,6 +52,7 @@ func _physics_process(delta):
 	move_and_slide()
 	if Input.is_action_just_pressed("Reload"):
 		reload()
+		reload_anim.play("reload")
 	if Input.is_action_just_pressed("shoot") && ammo > 0:  
 		fire()
 		ammo -=1

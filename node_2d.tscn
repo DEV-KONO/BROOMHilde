@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://pcs1dyw7uaa0"]
+[gd_scene load_steps=24 format=3 uid="uid://pcs1dyw7uaa0"]
 
 [ext_resource type="PackedScene" uid="uid://dnvq75oa4ieaj" path="res://player.tscn" id="1_cd4eq"]
 [ext_resource type="Script" path="res://parallax_background.gd" id="1_kjtu0"]
@@ -607,6 +607,7 @@ theme_override_font_sizes/font_size = 50
 text = "Vidas"
 horizontal_alignment = 1
 vertical_alignment = 1
+
 [node name="collision1" parent="." instance=ExtResource("21_f23su")]
 
 [node name="collision2" parent="." instance=ExtResource("22_kptbr")]

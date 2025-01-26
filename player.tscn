@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dnvq75oa4ieaj"]
+[gd_scene load_steps=32 format=3 uid="uid://dnvq75oa4ieaj"]
 
 [ext_resource type="Script" path="res://Player/scripts/player.gd" id="1_de7ph"]
 [ext_resource type="Texture2D" uid="uid://bd7wayi0pqv7d" path="res://Player/sprites/Base_Escoba.png" id="2_o4wc8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b63j1e4vnf23q" path="res://Player/sprites/Pecera_animacion-Sheet.png" id="3_s0d8i"]
 [ext_resource type="Script" path="res://Player/scripts/flying_SM.gd" id="4_hqgwc"]
 [ext_resource type="Texture2D" uid="uid://cghsiykkehu7g" path="res://Player/sprites/Estela_burbujas-Sheet.png" id="4_jchtf"]
+[ext_resource type="Texture2D" uid="uid://cs07gc8nxbopp" path="res://Player/sprites/Recarga_Burbujas-Sheet.png" id="5_ffjt8"]
 [ext_resource type="Script" path="res://Player/scripts/idle_SM.gd" id="5_jp34i"]
 [ext_resource type="PackedScene" uid="uid://xnx4nliwxaoi" path="res://GeneralNodes/HitBox/HitBox.tscn" id="6_sowum"]
 
@@ -105,6 +106,115 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_w5t58"),
 "moverEstela": SubResource("Animation_o7hf8")
+}
+
+[sub_resource type="Animation" id="Animation_i3817"]
+resource_name = "reload"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BubblesWitch:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 11]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BubblesWitch:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_v76rt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BubblesWitch:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BubblesWitch:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hlrv0"]
+_data = {
+"RESET": SubResource("Animation_v76rt"),
+"reload": SubResource("Animation_i3817")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2n36"]
@@ -493,6 +603,24 @@ hframes = 8
 libraries = {
 "": SubResource("AnimationLibrary_xgtoi")
 }
+
+[node name="Reload" type="Sprite2D" parent="Sprite2D"]
+visible = false
+position = Vector2(26, -40.31)
+scale = Vector2(0.39, 0.39)
+texture = ExtResource("5_ffjt8")
+hframes = 12
+
+[node name="reload" type="AnimationPlayer" parent="Sprite2D/Reload"]
+libraries = {
+"": SubResource("AnimationLibrary_hlrv0")
+}
+
+[node name="BubblesWitch" type="Sprite2D" parent="Sprite2D/Reload"]
+position = Vector2(-70.01, -9.63)
+scale = Vector2(2, 2)
+texture = ExtResource("5_ffjt8")
+hframes = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, -11)
