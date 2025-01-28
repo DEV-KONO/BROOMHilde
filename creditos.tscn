@@ -1,12 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://brb3pu2jgl016"]
 
 [ext_resource type="Script" path="res://creditos.gd" id="1_5rovm"]
-[ext_resource type="Texture2D" uid="uid://dx5y2jfj6tnv" path="res://Animations/Creditos-Sheet.png" id="2_ruqeq"]
+[ext_resource type="Texture2D" uid="uid://ddee1rooixbg0" path="res://Animations/Creditos-Sheet (1).png" id="2_nx76r"]
 
 [sub_resource type="Animation" id="Animation_tcn2h"]
 resource_name = "creditos"
 length = 2.0
-loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -46,7 +45,7 @@ script = ExtResource("1_5rovm")
 
 [node name="creditos_sprite" type="Sprite2D" parent="."]
 position = Vector2(1000, 534)
-texture = ExtResource("2_ruqeq")
+texture = ExtResource("2_nx76r")
 hframes = 8
 
 [node name="creditos_animation" type="AnimationPlayer" parent="creditos_sprite"]
